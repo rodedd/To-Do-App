@@ -1,3 +1,11 @@
+:root {
+  --melon: #ffa69eff;
+  --eggshell: #faf3ddff;
+  --aero-blue: #b8f2e6ff;
+  --powder-blue: #aed9e0ff;
+  --black-coral: #5e6472ff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +18,6 @@ html {
 }
 
 body {
-  background: #F2F4F5;
+  background: var(--powder-blue);
   color: #1E1E1F;
 }

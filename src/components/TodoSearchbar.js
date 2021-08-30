@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+
+import './styles/TodoSearchbar.css';
 
 function TodoSearchbar() {
   return (
-    <input placeholder="Buscar..."/>
+    <input className="TodoSearchbar__input" placeholder="Buscar..."/>
   );
 };
 

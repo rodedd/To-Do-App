@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import './styles/TodoCounter.css';
 
 function TodoCounter() {
   return (
     <>
-    <h1>To Do App</h1>
-    <h2>Has completado 2 de 3 To Do's</h2>
+      <h2 className="TodoCounter__title">Has completado 2 de 3 tareas</h2>
     </>
   );
 };

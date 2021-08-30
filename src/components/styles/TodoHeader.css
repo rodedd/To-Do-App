@@ -1,0 +1,24 @@
+.TodoHeader {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid var(--melon);
+
+  background-color: var(--powder-blue);
+
+}
+
+.TodoHeader__logo {
+  display: inline-block;
+
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+
+  background-image: url('../../images/sticky-notes.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
