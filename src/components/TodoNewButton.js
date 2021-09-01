@@ -2,9 +2,14 @@ import React from 'react';
 
 import './styles/TodoNewButton.css';
 
-function TodoNewButton() {
+function TodoNewButton(props) {
   return (
-    <button className="TodoNewButton">+</button>
+    <button 
+      className="TodoNewButton"
+      onClick={() => console.log('clic')}  
+    >
+      +
+    </button>
   );
 };
 

@@ -3,11 +3,19 @@ import React from 'react';
 import './styles/TodoItem.css';
 
 function TodoItem(props) {
+
   return (
     <li className="TodoItem">
-      <span className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}></span>
+      <span 
+        className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
+        onClick={props.onComplete}
+      >
+      </span>
       <p className={`TodoItem__content ${props.completed && 'TodoItem__content--completed'}`}>{props.text}</p>
-      <span className="Icon Icon-delete"></span>
+      <span 
+        className="Icon Icon-delete"
+        onClick={props.onDelete}
+      ></span>
     </li>
   );
 };
