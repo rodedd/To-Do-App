@@ -19,4 +19,4 @@ Live: https://to-do-app-bo6kt3g55-rodedd.vercel.app
 - CSS
   - Flexbox
   - Animations
--Local Storage API
+- Local Storage API
