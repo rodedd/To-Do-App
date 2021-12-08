@@ -9,9 +9,10 @@ import { TodoNewButton } from './components/TodoNewButton';
 import { TodoHeader } from './components/TodoHeader';
 import { TodoForm } from './components/TodoForm';
 import { Modal } from './components/Modal';
-import { TodosError } from './components/TodosError.js'
-import { TodosLoading } from './components/TodosLoading.js'
-import { EmptyTodos } from './components/EmptyTodos.js'
+import { TodosError } from './components/TodosError.js';
+import { TodosLoading } from './components/TodosLoading.js';
+import { EmptyTodos } from './components/EmptyTodos.js';
+import { ChangeAlert } from './components/ChangeAlert';
 
 import './App.css';
 
@@ -36,6 +37,7 @@ function App() {
     searchValue, 
     setSearchValue,
     addTodo,
+    sincronizeTodos,
   } = useTodos();
 
   return (
@@ -45,20 +47,37 @@ function App() {
         <TodoCounter 
           totalTodos={totalTodos}
           completedTodos={completedTodos}
+          loading={loading}
         />
         <TodoSearchbar 
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          loading={loading}
         />
 
         <TodoList 
           error={error}
           loading={loading}
           searchedTodos={searchedTodos}
+          totalTodos={totalTodos}
+          searchText={searchValue}
           onError={() => <TodosError />}
           onLoading={() => <TodosLoading />}
           onEmptyTodos={() => <EmptyTodos />}
-          render={todo => (
+          onEmptySearchResults={(searchText) => <p>No hay resultados para {searchText}</p>}
+          // Render Props
+          // render={todo => (
+          //   <TodoItem
+          //     key={todo.text}
+          //     text={todo.text}
+          //     completed={todo.completed}  
+          //     onComplete={() => toggleCompleteTodo(todo.text)}
+          //     onDelete={() => deleteTodo(todo.text)}
+          //   />
+          // )}
+        >
+          {/* Render Function */}
+          {todo => (
             <TodoItem
               key={todo.text}
               text={todo.text}
@@ -67,35 +86,25 @@ function App() {
               onDelete={() => deleteTodo(todo.text)}
             />
           )}
-        />
 
-          {/* <TodoList>
-            {loading && <TodosLoading />}
-            {error && <TodosError error={error} />}
-            {(!loading && !searchedTodos.length) && <EmptyTodos />}
-            {searchedTodos.map(todo => (
-              <TodoItem 
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}  
-                onComplete={() => toggleCompleteTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-              />
-            ))}
-          </TodoList> */}
+        </TodoList>
 
-          {openModal && (
-            <Modal>
-              <TodoForm 
-                addTodo={addTodo}
-                setOpenModal={setOpenModal}
-              />
-            </Modal>
-          )}
+        {openModal && (
+          <Modal>
+            <TodoForm 
+              addTodo={addTodo}
+              setOpenModal={setOpenModal}
+            />
+          </Modal>
+        )}
 
         <TodoNewButton
           openModal={openModal}
           setOpenModal={setOpenModal}
+        />
+
+        <ChangeAlert 
+          sincronize={sincronizeTodos}
         />
       </div>
     </React.Fragment>

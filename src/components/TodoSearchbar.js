@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles/TodoSearchbar.css';
 
-function TodoSearchbar({ searchValue, setSearchValue }) {
+function TodoSearchbar({ searchValue, setSearchValue, loading }) {
 
   const onSearchValueChange = (e) => {
     console.log(e.target.value);
@@ -15,6 +15,7 @@ function TodoSearchbar({ searchValue, setSearchValue }) {
       placeholder="Buscar..."
       value={searchValue}
       onChange={onSearchValueChange}
+      disabled={loading}
     />
   );
 };

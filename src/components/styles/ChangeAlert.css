@@ -1,0 +1,35 @@
+.ChangeAlert-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1e1e1f50;
+  z-index: 2;
+}
+
+.ChangeAlert-container {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 34px;
+
+  color: #fff;
+  text-align: center;
+  background-color: black;
+}
+
+.ChangeAlert-container p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.ChangeAlert-container button {
+  margin-top: 10px;
+}
