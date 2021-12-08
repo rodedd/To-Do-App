@@ -25,20 +25,28 @@ import './App.css';
 function App() {
 
   const {
+    states,
+    stateUpdaters,
+  } = useTodos();
+
+  const {
     loading, 
     error, 
-    searchedTodos, 
-    toggleCompleteTodo, 
-    deleteTodo,
-    openModal,
-    setOpenModal,
     totalTodos, 
     completedTodos,
     searchValue, 
-    setSearchValue,
+    searchedTodos, 
+    openModal,
+  } = states;
+
+  const {
+    toggleCompleteTodo, 
+    setOpenModal,
     addTodo,
+    deleteTodo,
+    setSearchValue,
     sincronizeTodos,
-  } = useTodos();
+  } = stateUpdaters
 
   return (
     <React.Fragment>

@@ -52,21 +52,26 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
-  return {
+  const states = {
     loading,
     error,
     totalTodos,
     completedTodos,
     searchValue,
-    setSearchValue,
     searchedTodos,
+    openModal,
+  };
+
+  const stateUpdaters = {
+    setSearchValue,
     addTodo,
     toggleCompleteTodo,
     deleteTodo,
-    openModal,
     setOpenModal,
     sincronizeTodos
   };
+
+  return { states, stateUpdaters};
 };
 
 export { useTodos };
